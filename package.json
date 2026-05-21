@@ -1,0 +1,26 @@
+{
+  "name": "learn-monorepo-telegram-bot-admin-panel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "db:migrate": "pnpm --filter @repo/db db:migrate",
+    "dev:admin": "pnpm --filter @repo/admin dev",
+    "dev:bot": "pnpm --filter bot dev",
+    "typecheck": "pnpm -r --if-present typecheck"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.0.8",
+      "onFail": "download"
+    }
+  },
+  "type": "module",
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}
