@@ -11,7 +11,7 @@ const envFiles = [
   resolve(process.cwd(), ".env.local"),
   resolve(process.cwd(), ".env"),
   resolve(repoRoot, ".env.local"),
-  resolve(repoRoot, ".env")
+  resolve(repoRoot, ".env"),
 ];
 
 for (const envFile of new Set(envFiles)) {
@@ -35,7 +35,7 @@ export function requireEnv(name: string): string {
 
   if (!value) {
     throw new Error(
-      `${name} is missing. Add it to the repository root .env file or export it before starting the app.`
+      `${name} is missing. Add it to the repository root .env file or export it before starting the app.`,
     );
   }
 
@@ -44,12 +44,13 @@ export function requireEnv(name: string): string {
 
 export const appConfig = {
   database: {
-    url: requireEnv("DATABASE_URL")
+    url: requireEnv("DATABASE_URL"),
   },
   telegram: {
-    botToken: getEnv("TELEGRAM_BOT_TOKEN")
+    botToken: getEnv("TELEGRAM_BOT_TOKEN"),
   },
-  nodeEnv: getEnv("NODE_ENV") ?? "development"
+  nodeEnv: getEnv("NODE_ENV") ?? "development",
+  googleMapApiKey: getEnv("GOOGLE_MAP_API_KEY") ?? "",
 };
 
 export function getTelegramBotToken(): string {
